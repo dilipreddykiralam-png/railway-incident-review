@@ -1,0 +1,83 @@
+{
+  "id": "99de7973-147b-4c28-9e32-a5369c9daa2f",
+  "created_at": "2026-09-23T18:47:48.480438+00:00",
+  "image_sha256": "586c2fa1ebeaf8bfd6a339ee7e92c5a321cfd2107bef968342697b5663683eb4",
+  "processed_sha256": "49a507f71f66527ac319b49de2d4df1974413694779c15d5518f430e71ba3e0b",
+  "backend": "vlm",
+  "model": "qwen2.5vl:7b",
+  "schema_sha256": "48c5f8f09fd334619c44ede2131e1a095fa0ce95de394ff77274aca53f9e7e0c",
+  "prompt_version": "asset_first_v4",
+  "prompt_sha256": "ee55b1095d7372d64f76f9a6f58fc9ed2250878cadae125aa616a4538b42b4c3",
+  "preprocessing": "EXIF transpose; RGB; max 1536px; JPEG quality 90",
+  "temperature": 0,
+  "review_threshold": 0.7,
+  "prediction": {
+    "incident": "non_incident",
+    "asset": "level_crossing_barrier",
+    "damaged_component": "none",
+    "damage_type": "none",
+    "severity": "none",
+    "confidence": 0.9,
+    "evidence": "The image shows a railway crossing with a closed barrier. There are no visible signs of an incident such as damage to the crossing, tracks, or surrounding infrastructure. The crossing appears to be in a normal state, with no vehicles or people obstructing it. The buildings in the background are typical railway structures, and there are no indications of recent activity that would suggest an incident has occurred.",
+    "limitations": "The image does not provide any evidence of recent activity or damage that would suggest an incident. The crossing is closed, which is a normal state for a railway crossing. There are no visible signs of a recent collision, derailment, or fire. The image does not show any vehicles or people obstructing the crossing, which would be a typical sign of an incident. The buildings in the background are in good condition and there are no visible signs of recent activity that would suggest an incident has occurred.",
+    "findings": [
+      {
+        "asset": "level_crossing_barrier",
+        "component": "closed",
+        "damage_status": "no_visible_damage",
+        "damage_type": "none",
+        "severity": "none",
+        "confidence": 0.9,
+        "evidence": "The barrier is closed, which is a normal state for a railway crossing. There are no visible signs of damage to the barrier or the surrounding infrastructure."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"scene_context\": \"railway\",\n  \"event\": \"no_visible_incident\",\n  \"event_confidence\": 0.9,\n  \"evidence\": \"The image shows a railway crossing with a closed barrier. There are no visible signs of an incident such as damage to the crossing, tracks, or surrounding infrastructure. The crossing appears to be in a normal state, with no vehicles or people obstructing it. The buildings in the background are typical railway structures, and there are no indications of recent activity that would suggest an incident has occurred.\",\n  \"limitations\": \"The image does not provide any evidence of recent activity or damage that would suggest an incident. The crossing is closed, which is a normal state for a railway crossing. There are no visible signs of a recent collision, derailment, or fire. The image does not show any vehicles or people obstructing the crossing, which would be a typical sign of an incident. The buildings in the background are in good condition and there are no visible signs of recent activity that would suggest an incident has occurred.\",\n  \"findings\": [\n    {\n      \"asset\": \"level_crossing_barrier\",\n      \"component\": \"closed\",\n      \"damage_status\": \"no_visible_damage\",\n      \"damage_type\": \"none\",\n      \"severity\": \"none\",\n      \"confidence\": 0.9,\n      \"evidence\": \"The barrier is closed, which is a normal state for a railway crossing. There are no visible signs of damage to the barrier or the surrounding infrastructure.\"\n    }\n  ]\n}",
+  "error": null,
+  "human_verification": {
+    "status": "pending"
+  },
+  "response_contract": "scene_assessment_v4",
+  "generation_settings": {
+    "temperature": 0,
+    "num_ctx": 8192,
+    "num_predict": 2048,
+    "structured_format": true
+  },
+  "attempts": [
+    {
+      "raw_response": "{\n  \"scene_context\": \"railway\",\n  \"event\": \"no_visible_incident\",\n  \"event_confidence\": 0.9,\n  \"evidence\": \"The image shows a railway crossing with a closed barrier. There are no visible signs of an incident such as damage to the crossing, tracks, or surrounding infrastructure. The crossing appears to be in a normal state, with no vehicles or people obstructing it. The buildings in the background are typical railway structures, and there are no indications of recent activity that would suggest an incident has occurred.\",\n  \"limitations\": \"The image does not provide any evidence of recent activity or damage that would suggest an incident. The crossing is closed, which is a normal state for a railway crossing. There are no visible signs of a recent collision, derailment, or fire. The image does not show any vehicles or people obstructing the crossing, which would be a typical sign of an incident. The buildings in the background are in good condition and there are no visible signs of recent activity that would suggest an incident has occurred.\",\n  \"findings\": [\n    {\n      \"asset\": \"level_crossing_barrier\",\n      \"component\": \"closed\",\n      \"damage_status\": \"no_visible_damage\",\n      \"damage_type\": \"none\",\n      \"severity\": \"none\",\n      \"confidence\": 0.9,\n      \"evidence\": \"The barrier is closed, which is a normal state for a railway crossing. There are no visible signs of damage to the barrier or the surrounding infrastructure.\"\n    }\n  ]\n}"
+    }
+  ],
+  "repair_policy": "one_validation_retry_v1",
+  "model_assessment": {
+    "scene_context": "railway",
+    "event": "no_visible_incident",
+    "event_confidence": 0.9,
+    "evidence": "The image shows a railway crossing with a closed barrier. There are no visible signs of an incident such as damage to the crossing, tracks, or surrounding infrastructure. The crossing appears to be in a normal state, with no vehicles or people obstructing it. The buildings in the background are typical railway structures, and there are no indications of recent activity that would suggest an incident has occurred.",
+    "limitations": "The image does not provide any evidence of recent activity or damage that would suggest an incident. The crossing is closed, which is a normal state for a railway crossing. There are no visible signs of a recent collision, derailment, or fire. The image does not show any vehicles or people obstructing the crossing, which would be a typical sign of an incident. The buildings in the background are in good condition and there are no visible signs of recent activity that would suggest an incident has occurred.",
+    "findings": [
+      {
+        "asset": "level_crossing_barrier",
+        "component": "closed",
+        "damage_status": "no_visible_damage",
+        "damage_type": "none",
+        "severity": "none",
+        "confidence": 0.9,
+        "evidence": "The barrier is closed, which is a normal state for a railway crossing. There are no visible signs of damage to the barrier or the surrounding infrastructure."
+      }
+    ]
+  },
+  "derivation_notes": [],
+  "projection_policy": "asset_first_primary_v2",
+  "confidence_basis": "Selected asset self-assessment; event confidence is separate in model_assessment; missing estimate is not displayed",
+  "confidence_scope": "selected_asset",
+  "confidence_available": true,
+  "review_reasons": [
+    "routine_verification"
+  ],
+  "latency_seconds": 19.2242,
+  "case_id": "roydon-crossing",
+  "image_path": "examples/images/roydon-crossing.jpg",
+  "example_role": "unlabelled_smoke_example"
+}

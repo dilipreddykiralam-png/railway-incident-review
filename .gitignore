@@ -1,0 +1,40 @@
+# Local environments and credentials
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+.streamlit/secrets.toml
+
+# Python and test artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+
+# Private uploads, reviews and annotations stay local
+runs/
+uploads/
+reviewed_reports/
+**/annotations/
+data/*
+!data/manifest_template.csv
+pilot/images/*
+!pilot/images/.gitkeep
+pilot/exports/
+pilot/truth.jsonl
+diagnostics/
+paper/
+
+# Machine-specific files
+.DS_Store
+.idea/
+.vscode/
+*.log
+test-results.xml

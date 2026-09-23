@@ -1,0 +1,62 @@
+[
+  {
+    "case_id": "trinway-derailment",
+    "image_path": "images/trinway-derailment.jpg",
+    "source_title": "File:96 car Train derailment in Trinway, Ohio USA 01.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:96_car_Train_derailment_in_Trinway,_Ohio_USA_01.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/96_car_Train_derailment_in_Trinway%2C_Ohio_USA_01.jpg",
+    "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1f/96_car_Train_derailment_in_Trinway%2C_Ohio_USA_01.jpg/1280px-96_car_Train_derailment_in_Trinway%2C_Ohio_USA_01.jpg",
+    "author": "Paula R. Lively",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "license_verified_date": "2026-09-23",
+    "license_verification": "Wikimedia Commons file page and/or official imageinfo API",
+    "sha256": "c7e69fd9114a83dd88a8dc8d98bf94c0d5067fbb53bf2d59bd2b065f278b2696",
+    "dimensions": [
+      1280,
+      853
+    ],
+    "changes": "Wikimedia Commons thumbnail, resized to 1280 pixels wide; copied without further changes. The inference pipeline separately converts to RGB JPEG quality 90.",
+    "annotation_status": "not_expert_annotated"
+  },
+  {
+    "case_id": "donetsk-train",
+    "image_path": "images/donetsk-train.jpg",
+    "source_title": "File:Locomotive EPL2T on train station in Donetsk.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Locomotive_EPL2T_on_train_station_in_Donetsk.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Locomotive_EPL2T_on_train_station_in_Donetsk.jpg",
+    "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Locomotive_EPL2T_on_train_station_in_Donetsk.jpg/1280px-Locomotive_EPL2T_on_train_station_in_Donetsk.jpg",
+    "author": "Andrey Butko",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "license_verified_date": "2026-09-23",
+    "license_verification": "Wikimedia Commons file page and/or official imageinfo API",
+    "sha256": "a3636c0a987c8059035497d7613f8ac4328cd866084dadb55e53884200c19055",
+    "dimensions": [
+      1280,
+      960
+    ],
+    "changes": "Wikimedia Commons thumbnail, resized to 1280 pixels wide; copied without further changes. The inference pipeline separately converts to RGB JPEG quality 90.",
+    "annotation_status": "not_expert_annotated"
+  },
+  {
+    "case_id": "roydon-crossing",
+    "image_path": "images/roydon-crossing.jpg",
+    "source_title": "File:Level crossing at Roydon railway station - geograph.org.uk - 5221621.jpg",
+    "source_url": "https://commons.wikimedia.org/wiki/File:Level_crossing_at_Roydon_railway_station_-_geograph.org.uk_-_5221621.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Level_crossing_at_Roydon_railway_station_-_geograph.org.uk_-_5221621.jpg",
+    "download_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/62/Level_crossing_at_Roydon_railway_station_-_geograph.org.uk_-_5221621.jpg/1280px-Level_crossing_at_Roydon_railway_station_-_geograph.org.uk_-_5221621.jpg",
+    "author": "Peter S",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "license_verified_date": "2026-09-23",
+    "license_verification": "Wikimedia Commons file page and/or official imageinfo API",
+    "sha256": "586c2fa1ebeaf8bfd6a339ee7e92c5a321cfd2107bef968342697b5663683eb4",
+    "dimensions": [
+      1280,
+      960
+    ],
+    "changes": "Wikimedia Commons thumbnail, resized to 1280 pixels wide; copied without further changes. The inference pipeline separately converts to RGB JPEG quality 90.",
+    "annotation_status": "not_expert_annotated"
+  }
+]

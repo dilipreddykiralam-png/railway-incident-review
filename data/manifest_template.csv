@@ -1,0 +1,3 @@
+image_id,image_path,incident,asset,damaged_component,damage_type,severity,event_id,split,source,annotator
+example_001,images/example_001.jpg,incident,wagon,bogie,derailment,severe,event_001,test,REPLACE_WITH_LICENSED_SOURCE,reviewer_1
+example_002,images/example_002.jpg,non_incident,track,none,none,none,event_002,test,REPLACE_WITH_LICENSED_SOURCE,reviewer_1

@@ -1,0 +1,122 @@
+{
+  "id": "327c227b-6957-4381-b81b-cc3508e8ac56",
+  "created_at": "2026-09-23T18:46:58.026721+00:00",
+  "image_sha256": "c7e69fd9114a83dd88a8dc8d98bf94c0d5067fbb53bf2d59bd2b065f278b2696",
+  "processed_sha256": "9e0b04d0a9592c2f0e62e05662e8c826cd06df617c646d6d20d9a51fa0d9b7a1",
+  "backend": "vlm",
+  "model": "qwen2.5vl:7b",
+  "schema_sha256": "48c5f8f09fd334619c44ede2131e1a095fa0ce95de394ff77274aca53f9e7e0c",
+  "prompt_version": "asset_first_v4",
+  "prompt_sha256": "ee55b1095d7372d64f76f9a6f58fc9ed2250878cadae125aa616a4538b42b4c3",
+  "preprocessing": "EXIF transpose; RGB; max 1536px; JPEG quality 90",
+  "temperature": 0,
+  "review_threshold": 0.7,
+  "prediction": {
+    "incident": "incident",
+    "asset": "wagon",
+    "damaged_component": "unknown",
+    "damage_type": "unknown",
+    "severity": "unknown",
+    "confidence": 0.8,
+    "evidence": "A tank car has derailed and is lying on its side, with workers in safety gear inspecting the scene. The tank car appears to be leaking, as there is visible liquid on the ground near it. The derailed tank car is blocking the tracks, indicating a significant incident.",
+    "limitations": "The image does not provide a clear view of the extent of the damage to the tank car or the tracks. The workers' actions suggest they are assessing the situation, but the exact nature of the incident (e.g., whether it is a spill or a fire) is not clear from the image alone. Review flags: suspected_damage_requires_review",
+    "findings": [
+      {
+        "asset": "wagon",
+        "component": "tank car",
+        "damage_status": "suspected_damage",
+        "damage_type": "unknown",
+        "severity": "unknown",
+        "confidence": 0.8,
+        "evidence": "The tank car is derailed and appears to be leaking, with visible liquid on the ground."
+      },
+      {
+        "asset": "road_vehicle",
+        "component": "none",
+        "damage_status": "no_visible_damage",
+        "damage_type": "none",
+        "severity": "none",
+        "confidence": 0.9,
+        "evidence": "No road vehicles are visible in the image."
+      },
+      {
+        "asset": "level_crossing_barrier",
+        "component": "none",
+        "damage_status": "no_visible_damage",
+        "damage_type": "none",
+        "severity": "none",
+        "confidence": 0.9,
+        "evidence": "No level crossing barriers are visible in the image."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"scene_context\": \"railway\",\n  \"event\": \"visible_incident\",\n  \"event_confidence\": 0.9,\n  \"evidence\": \"A tank car has derailed and is lying on its side, with workers in safety gear inspecting the scene. The tank car appears to be leaking, as there is visible liquid on the ground near it. The derailed tank car is blocking the tracks, indicating a significant incident.\",\n  \"limitations\": \"The image does not provide a clear view of the extent of the damage to the tank car or the tracks. The workers' actions suggest they are assessing the situation, but the exact nature of the incident (e.g., whether it is a spill or a fire) is not clear from the image alone.\",\n  \"findings\": [\n    {\n      \"asset\": \"wagon\",\n      \"component\": \"tank car\",\n      \"damage_status\": \"suspected_damage\",\n      \"damage_type\": \"unknown\",\n      \"severity\": \"unknown\",\n      \"confidence\": 0.8,\n      \"evidence\": \"The tank car is derailed and appears to be leaking, with visible liquid on the ground.\"\n    },\n    {\n      \"asset\": \"road_vehicle\",\n      \"component\": \"none\",\n      \"damage_status\": \"no_visible_damage\",\n      \"damage_type\": \"none\",\n      \"severity\": \"none\",\n      \"confidence\": 0.9,\n      \"evidence\": \"No road vehicles are visible in the image.\"\n    },\n    {\n      \"asset\": \"level_crossing_barrier\",\n      \"component\": \"none\",\n      \"damage_status\": \"no_visible_damage\",\n      \"damage_type\": \"none\",\n      \"severity\": \"none\",\n      \"confidence\": 0.9,\n      \"evidence\": \"No level crossing barriers are visible in the image.\"\n    }\n  ]\n}",
+  "error": null,
+  "human_verification": {
+    "status": "pending"
+  },
+  "response_contract": "scene_assessment_v4",
+  "generation_settings": {
+    "temperature": 0,
+    "num_ctx": 8192,
+    "num_predict": 2048,
+    "structured_format": true
+  },
+  "attempts": [
+    {
+      "raw_response": "{\n  \"scene_context\": \"railway\",\n  \"event\": \"visible_incident\",\n  \"event_confidence\": 0.9,\n  \"evidence\": \"A tank car has derailed and is lying on its side, with workers in safety gear inspecting the scene. The tank car appears to be leaking, as there is visible liquid on the ground near it. The derailed tank car is blocking the tracks, indicating a significant incident.\",\n  \"limitations\": \"The image does not provide a clear view of the extent of the damage to the tank car or the tracks. The workers' actions suggest they are assessing the situation, but the exact nature of the incident (e.g., whether it is a spill or a fire) is not clear from the image alone.\",\n  \"findings\": [\n    {\n      \"asset\": \"wagon\",\n      \"component\": \"tank car\",\n      \"damage_status\": \"suspected_damage\",\n      \"damage_type\": \"unknown\",\n      \"severity\": \"unknown\",\n      \"confidence\": 0.8,\n      \"evidence\": \"The tank car is derailed and appears to be leaking, with visible liquid on the ground.\"\n    },\n    {\n      \"asset\": \"road_vehicle\",\n      \"component\": \"none\",\n      \"damage_status\": \"no_visible_damage\",\n      \"damage_type\": \"none\",\n      \"severity\": \"none\",\n      \"confidence\": 0.9,\n      \"evidence\": \"No road vehicles are visible in the image.\"\n    },\n    {\n      \"asset\": \"level_crossing_barrier\",\n      \"component\": \"none\",\n      \"damage_status\": \"no_visible_damage\",\n      \"damage_type\": \"none\",\n      \"severity\": \"none\",\n      \"confidence\": 0.9,\n      \"evidence\": \"No level crossing barriers are visible in the image.\"\n    }\n  ]\n}"
+    }
+  ],
+  "repair_policy": "one_validation_retry_v1",
+  "model_assessment": {
+    "scene_context": "railway",
+    "event": "visible_incident",
+    "event_confidence": 0.9,
+    "evidence": "A tank car has derailed and is lying on its side, with workers in safety gear inspecting the scene. The tank car appears to be leaking, as there is visible liquid on the ground near it. The derailed tank car is blocking the tracks, indicating a significant incident.",
+    "limitations": "The image does not provide a clear view of the extent of the damage to the tank car or the tracks. The workers' actions suggest they are assessing the situation, but the exact nature of the incident (e.g., whether it is a spill or a fire) is not clear from the image alone.",
+    "findings": [
+      {
+        "asset": "wagon",
+        "component": "tank car",
+        "damage_status": "suspected_damage",
+        "damage_type": "unknown",
+        "severity": "unknown",
+        "confidence": 0.8,
+        "evidence": "The tank car is derailed and appears to be leaking, with visible liquid on the ground."
+      },
+      {
+        "asset": "road_vehicle",
+        "component": "none",
+        "damage_status": "no_visible_damage",
+        "damage_type": "none",
+        "severity": "none",
+        "confidence": 0.9,
+        "evidence": "No road vehicles are visible in the image."
+      },
+      {
+        "asset": "level_crossing_barrier",
+        "component": "none",
+        "damage_status": "no_visible_damage",
+        "damage_type": "none",
+        "severity": "none",
+        "confidence": 0.9,
+        "evidence": "No level crossing barriers are visible in the image."
+      }
+    ]
+  },
+  "derivation_notes": [
+    "suspected_damage_requires_review"
+  ],
+  "projection_policy": "asset_first_primary_v2",
+  "confidence_basis": "Selected asset self-assessment; event confidence is separate in model_assessment; missing estimate is not displayed",
+  "confidence_scope": "selected_asset",
+  "confidence_available": true,
+  "review_reasons": [
+    "unknown_field",
+    "suspected_damage_requires_review"
+  ],
+  "latency_seconds": 25.1736,
+  "case_id": "trinway-derailment",
+  "image_path": "examples/images/trinway-derailment.jpg",
+  "example_role": "unlabelled_smoke_example"
+}

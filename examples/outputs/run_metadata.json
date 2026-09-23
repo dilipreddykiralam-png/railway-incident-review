@@ -1,0 +1,39 @@
+{
+  "purpose": "Unlabelled smoke examples; not an accuracy benchmark",
+  "started_at": "2026-09-23T18:46:58.017229+00:00",
+  "model": "qwen2.5vl:7b",
+  "ollama_version": "0.34.0",
+  "model_digest": "5ced39dfa4bac325dc183dd1e4febaa1c46b3ea28bce48896c8e69c1e79611cc",
+  "model_details": {
+    "parent_model": "",
+    "format": "gguf",
+    "family": "qwen25vl",
+    "families": [
+      "qwen25vl"
+    ],
+    "parameter_size": "8.3B",
+    "quantization_level": "Q4_K_M",
+    "context_length": 128000,
+    "embedding_length": 3584
+  },
+  "hardware": {
+    "os": "Darwin",
+    "os_release": "25.6.0",
+    "architecture": "arm64",
+    "python": "3.9.6",
+    "cpu": "Apple M5",
+    "memory_bytes": "17179869184"
+  },
+  "libraries": {
+    "pydantic": "2.13.5",
+    "Pillow": "11.3.0"
+  },
+  "case_order": [
+    "trinway-derailment",
+    "donetsk-train",
+    "roydon-crossing"
+  ],
+  "human_verification": "Pending for all cases; no reference labels",
+  "retry_policy": "At most one validation-repair request per image; all attempts saved",
+  "latency_note": "End-to-end seconds; includes preprocessing, model calls and any repair. First case may include model loading."
+}

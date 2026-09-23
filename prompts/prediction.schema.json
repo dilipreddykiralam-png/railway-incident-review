@@ -1,0 +1,211 @@
+{
+  "$defs": {
+    "AssetFinding": {
+      "additionalProperties": false,
+      "properties": {
+        "asset": {
+          "enum": [
+            "locomotive",
+            "wagon",
+            "passenger_coach",
+            "track",
+            "signal",
+            "catenary",
+            "level_crossing_barrier",
+            "road_vehicle",
+            "other",
+            "unknown"
+          ],
+          "title": "Asset",
+          "type": "string"
+        },
+        "component": {
+          "maxLength": 100,
+          "minLength": 1,
+          "title": "Component",
+          "type": "string"
+        },
+        "damage_status": {
+          "enum": [
+            "visible_damage",
+            "suspected_damage",
+            "involved_no_visible_damage",
+            "no_visible_damage"
+          ],
+          "title": "Damage Status",
+          "type": "string"
+        },
+        "damage_type": {
+          "enum": [
+            "deformation",
+            "crack",
+            "breakage",
+            "fire",
+            "derailment",
+            "collision_damage",
+            "displacement",
+            "other",
+            "none",
+            "unknown"
+          ],
+          "title": "Damage Type",
+          "type": "string"
+        },
+        "severity": {
+          "enum": [
+            "none",
+            "minor",
+            "moderate",
+            "severe",
+            "critical",
+            "unknown"
+          ],
+          "title": "Severity",
+          "type": "string"
+        },
+        "confidence": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Confidence",
+          "type": "number"
+        },
+        "evidence": {
+          "maxLength": 1000,
+          "minLength": 1,
+          "title": "Evidence",
+          "type": "string"
+        }
+      },
+      "required": [
+        "asset",
+        "component",
+        "damage_status",
+        "damage_type",
+        "severity",
+        "confidence",
+        "evidence"
+      ],
+      "title": "AssetFinding",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "incident": {
+      "enum": [
+        "incident",
+        "non_incident",
+        "uncertain"
+      ],
+      "title": "Incident",
+      "type": "string"
+    },
+    "asset": {
+      "enum": [
+        "locomotive",
+        "wagon",
+        "passenger_coach",
+        "track",
+        "signal",
+        "catenary",
+        "level_crossing_barrier",
+        "road_vehicle",
+        "other",
+        "unknown"
+      ],
+      "title": "Asset",
+      "type": "string"
+    },
+    "damaged_component": {
+      "enum": [
+        "coupler",
+        "bogie",
+        "wheel",
+        "axle",
+        "body",
+        "rail",
+        "sleeper",
+        "ballast",
+        "signal",
+        "wire",
+        "pole",
+        "barrier_arm",
+        "cab",
+        "buffer_beam",
+        "front_end",
+        "trailer",
+        "other",
+        "none",
+        "unknown"
+      ],
+      "title": "Damaged Component",
+      "type": "string"
+    },
+    "damage_type": {
+      "enum": [
+        "deformation",
+        "crack",
+        "breakage",
+        "fire",
+        "derailment",
+        "collision_damage",
+        "displacement",
+        "other",
+        "none",
+        "unknown"
+      ],
+      "title": "Damage Type",
+      "type": "string"
+    },
+    "severity": {
+      "enum": [
+        "none",
+        "minor",
+        "moderate",
+        "severe",
+        "critical",
+        "unknown"
+      ],
+      "title": "Severity",
+      "type": "string"
+    },
+    "confidence": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Confidence",
+      "type": "number"
+    },
+    "evidence": {
+      "maxLength": 1500,
+      "minLength": 1,
+      "title": "Evidence",
+      "type": "string"
+    },
+    "limitations": {
+      "maxLength": 1500,
+      "minLength": 1,
+      "title": "Limitations",
+      "type": "string"
+    },
+    "findings": {
+      "items": {
+        "$ref": "#/$defs/AssetFinding"
+      },
+      "maxItems": 20,
+      "title": "Findings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "incident",
+    "asset",
+    "damaged_component",
+    "damage_type",
+    "severity",
+    "confidence",
+    "evidence",
+    "limitations"
+  ],
+  "title": "Prediction",
+  "type": "object"
+}

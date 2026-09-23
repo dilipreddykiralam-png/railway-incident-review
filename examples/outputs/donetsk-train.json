@@ -1,0 +1,119 @@
+{
+  "id": "29478f73-dd1e-4cd0-b0e1-4c560de90788",
+  "created_at": "2026-09-23T18:47:23.216127+00:00",
+  "image_sha256": "a3636c0a987c8059035497d7613f8ac4328cd866084dadb55e53884200c19055",
+  "processed_sha256": "b0c929acbb95a94e4b5eb528253b5968b87b605508cf8721318575520c3d770b",
+  "backend": "vlm",
+  "model": "qwen2.5vl:7b",
+  "schema_sha256": "48c5f8f09fd334619c44ede2131e1a095fa0ce95de394ff77274aca53f9e7e0c",
+  "prompt_version": "asset_first_v4",
+  "prompt_sha256": "ee55b1095d7372d64f76f9a6f58fc9ed2250878cadae125aa616a4538b42b4c3",
+  "preprocessing": "EXIF transpose; RGB; max 1536px; JPEG quality 90",
+  "temperature": 0,
+  "review_threshold": 0.7,
+  "prediction": {
+    "incident": "non_incident",
+    "asset": "passenger_coach",
+    "damaged_component": "none",
+    "damage_type": "none",
+    "severity": "none",
+    "confidence": 0.9,
+    "evidence": "The image shows a train at a railway station. There are no visible signs of an incident such as damage, derailment, or fire. The train appears to be stationary, and there are no visible barriers or obstructions on the tracks. The platform and surrounding area appear clear of any incident-related debris or people in distress. The train's front display shows a destination, and the overall scene suggests a normal railway operation without any visible signs of an incident.",
+    "limitations": "The image does not provide information about the train's speed, the presence of any hidden defects, or the cause of any incident. The assessment is based on the visible evidence and does not account for potential hidden or past incidents that are not observable in the image.",
+    "findings": [
+      {
+        "asset": "passenger_coach",
+        "component": "front",
+        "damage_status": "no_visible_damage",
+        "damage_type": "none",
+        "severity": "none",
+        "confidence": 0.9,
+        "evidence": "The front of the train shows no visible signs of damage or wear. The display is clear, and there are no visible cracks, dents, or other damage indicators."
+      },
+      {
+        "asset": "locomotive",
+        "component": "front",
+        "damage_status": "no_visible_damage",
+        "damage_type": "none",
+        "severity": "none",
+        "confidence": 0.9,
+        "evidence": "The front of the locomotive shows no visible signs of damage or wear. The coupling mechanism and other components appear intact."
+      },
+      {
+        "asset": "road_vehicle",
+        "component": "none",
+        "damage_status": "no_visible_damage",
+        "damage_type": "none",
+        "severity": "none",
+        "confidence": 0.9,
+        "evidence": "There are no visible road vehicles or barriers on the tracks, and the platform appears clear of any incident-related debris or people in distress."
+      }
+    ]
+  },
+  "raw_response": "{\n  \"scene_context\": \"railway\",\n  \"event\": \"no_visible_incident\",\n  \"event_confidence\": 0.9,\n  \"evidence\": \"The image shows a train at a railway station. There are no visible signs of an incident such as damage, derailment, or fire. The train appears to be stationary, and there are no visible barriers or obstructions on the tracks. The platform and surrounding area appear clear of any incident-related debris or people in distress. The train's front display shows a destination, and the overall scene suggests a normal railway operation without any visible signs of an incident.\",\n  \"limitations\": \"The image does not provide information about the train's speed, the presence of any hidden defects, or the cause of any incident. The assessment is based on the visible evidence and does not account for potential hidden or past incidents that are not observable in the image.\",\n  \"findings\": [\n    {\n      \"asset\": \"passenger_coach\",\n      \"component\": \"front\",\n      \"damage_status\": \"no_visible_damage\",\n      \"damage_type\": \"none\",\n      \"severity\": \"none\",\n      \"confidence\": 0.9,\n      \"evidence\": \"The front of the train shows no visible signs of damage or wear. The display is clear, and there are no visible cracks, dents, or other damage indicators.\"\n    },\n    {\n      \"asset\": \"locomotive\",\n      \"component\": \"front\",\n      \"damage_status\": \"no_visible_damage\",\n      \"damage_type\": \"none\",\n      \"severity\": \"none\",\n      \"confidence\": 0.9,\n      \"evidence\": \"The front of the locomotive shows no visible signs of damage or wear. The coupling mechanism and other components appear intact.\"\n    },\n    {\n      \"asset\": \"road_vehicle\",\n      \"component\": \"none\",\n      \"damage_status\": \"no_visible_damage\",\n      \"damage_type\": \"none\",\n      \"severity\": \"none\",\n      \"confidence\": 0.9,\n      \"evidence\": \"There are no visible road vehicles or barriers on the tracks, and the platform appears clear of any incident-related debris or people in distress.\"\n    }\n  ]\n}",
+  "error": null,
+  "human_verification": {
+    "status": "pending"
+  },
+  "response_contract": "scene_assessment_v4",
+  "generation_settings": {
+    "temperature": 0,
+    "num_ctx": 8192,
+    "num_predict": 2048,
+    "structured_format": true
+  },
+  "attempts": [
+    {
+      "raw_response": "{\n  \"scene_context\": \"railway\",\n  \"event\": \"no_visible_incident\",\n  \"event_confidence\": 0.9,\n  \"evidence\": \"The image shows a train at a railway station. There are no visible signs of an incident such as damage, derailment, or fire. The train appears to be stationary, and there are no visible barriers or obstructions on the tracks. The platform and surrounding area appear clear of any incident-related debris or people in distress. The train's front display shows a destination, and the overall scene suggests a normal railway operation without any visible signs of an incident.\",\n  \"limitations\": \"The image does not provide information about the train's speed, the presence of any hidden defects, or the cause of any incident. The assessment is based on the visible evidence and does not account for potential hidden or past incidents that are not observable in the image.\",\n  \"findings\": [\n    {\n      \"asset\": \"passenger_coach\",\n      \"component\": \"front\",\n      \"damage_status\": \"no_visible_damage\",\n      \"damage_type\": \"none\",\n      \"severity\": \"none\",\n      \"confidence\": 0.9,\n      \"evidence\": \"The front of the train shows no visible signs of damage or wear. The display is clear, and there are no visible cracks, dents, or other damage indicators.\"\n    },\n    {\n      \"asset\": \"locomotive\",\n      \"component\": \"front\",\n      \"damage_status\": \"no_visible_damage\",\n      \"damage_type\": \"none\",\n      \"severity\": \"none\",\n      \"confidence\": 0.9,\n      \"evidence\": \"The front of the locomotive shows no visible signs of damage or wear. The coupling mechanism and other components appear intact.\"\n    },\n    {\n      \"asset\": \"road_vehicle\",\n      \"component\": \"none\",\n      \"damage_status\": \"no_visible_damage\",\n      \"damage_type\": \"none\",\n      \"severity\": \"none\",\n      \"confidence\": 0.9,\n      \"evidence\": \"There are no visible road vehicles or barriers on the tracks, and the platform appears clear of any incident-related debris or people in distress.\"\n    }\n  ]\n}"
+    }
+  ],
+  "repair_policy": "one_validation_retry_v1",
+  "model_assessment": {
+    "scene_context": "railway",
+    "event": "no_visible_incident",
+    "event_confidence": 0.9,
+    "evidence": "The image shows a train at a railway station. There are no visible signs of an incident such as damage, derailment, or fire. The train appears to be stationary, and there are no visible barriers or obstructions on the tracks. The platform and surrounding area appear clear of any incident-related debris or people in distress. The train's front display shows a destination, and the overall scene suggests a normal railway operation without any visible signs of an incident.",
+    "limitations": "The image does not provide information about the train's speed, the presence of any hidden defects, or the cause of any incident. The assessment is based on the visible evidence and does not account for potential hidden or past incidents that are not observable in the image.",
+    "findings": [
+      {
+        "asset": "passenger_coach",
+        "component": "front",
+        "damage_status": "no_visible_damage",
+        "damage_type": "none",
+        "severity": "none",
+        "confidence": 0.9,
+        "evidence": "The front of the train shows no visible signs of damage or wear. The display is clear, and there are no visible cracks, dents, or other damage indicators."
+      },
+      {
+        "asset": "locomotive",
+        "component": "front",
+        "damage_status": "no_visible_damage",
+        "damage_type": "none",
+        "severity": "none",
+        "confidence": 0.9,
+        "evidence": "The front of the locomotive shows no visible signs of damage or wear. The coupling mechanism and other components appear intact."
+      },
+      {
+        "asset": "road_vehicle",
+        "component": "none",
+        "damage_status": "no_visible_damage",
+        "damage_type": "none",
+        "severity": "none",
+        "confidence": 0.9,
+        "evidence": "There are no visible road vehicles or barriers on the tracks, and the platform appears clear of any incident-related debris or people in distress."
+      }
+    ]
+  },
+  "derivation_notes": [],
+  "projection_policy": "asset_first_primary_v2",
+  "confidence_basis": "Selected asset self-assessment; event confidence is separate in model_assessment; missing estimate is not displayed",
+  "confidence_scope": "selected_asset",
+  "confidence_available": true,
+  "review_reasons": [
+    "routine_verification"
+  ],
+  "latency_seconds": 25.2647,
+  "case_id": "donetsk-train",
+  "image_path": "examples/images/donetsk-train.jpg",
+  "example_role": "unlabelled_smoke_example"
+}
