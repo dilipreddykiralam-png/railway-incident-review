@@ -128,6 +128,13 @@ def displayed_response_text(app):
     return '\n'.join(element.value for element in [*app.markdown, *app.caption])
 
 
+def displayed_image_count(app):
+    # Streamlit 1.64 exposes typed "image" nodes; 1.50 uses legacy "imgs"
+    # nodes. Both wrap ImageList, so count actual images, not just containers.
+    elements = app.get('image') or app.get('imgs')
+    return sum(len(element.proto.imgs) for element in elements)
+
+
 def test_mixed_video_shows_one_normal_then_incident_responses_and_saves_all_frames(tmp_path, monkeypatch):
     import copy
     import json
@@ -137,7 +144,7 @@ def test_mixed_video_shows_one_normal_then_incident_responses_and_saves_all_fram
     original_frames = copy.deepcopy(result['frames'])
     with analyzed_video(result) as app:
         assert displayed_sample_numbers(app) == [1, 3, 5]
-        assert len(app.get('imgs')) == 3
+        assert displayed_image_count(app) == 3
         text = displayed_response_text(app)
         assert 'incident finding 3' in text and 'incident finding 5' in text
         assert 'normal finding 2' not in text and 'normal finding 4' not in text
@@ -165,7 +172,7 @@ def test_all_normal_video_keeps_every_image_and_one_brief_summary(tmp_path, monk
     result = make_video_record(['normal', 'normal', 'normal', 'normal'])
     with analyzed_video(result) as app:
         assert displayed_sample_numbers(app) == [1, 2, 3, 4]
-        assert len(app.get('imgs')) == 4
+        assert displayed_image_count(app) == 4
         sections = [element.value for element in app.subheader]
         assert sections.count('Overall event summary') == 1
         assert sections.index('Overall event summary') < sections.index('Human verification')
@@ -182,7 +189,7 @@ def test_uncertain_suspected_and_failed_samples_remain_visible(tmp_path, monkeyp
     result = make_video_record(['normal', 'normal', 'uncertain', 'suspected', 'failed'])
     with analyzed_video(result) as app:
         assert displayed_sample_numbers(app) == [1, 3, 4, 5]
-        assert len(app.get('imgs')) == 4
+        assert displayed_image_count(app) == 4
         text = displayed_response_text(app)
         assert 'uncertain finding 3' in text
         assert 'suspected finding 4' in text
@@ -208,7 +215,7 @@ def test_all_failed_video_keeps_images_and_explains_missing_summary(tmp_path, mo
     result = make_video_record(['failed', 'failed'])
     with analyzed_video(result) as app:
         assert displayed_sample_numbers(app) == [1, 2]
-        assert len(app.get('imgs')) == 2
+        assert displayed_image_count(app) == 2
         sections = [element.value for element in app.subheader]
         assert sections.count('Overall event summary') == 1
         assert 'The event cannot be assessed' in displayed_response_text(app)

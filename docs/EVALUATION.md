@@ -8,6 +8,8 @@
 python -m pytest -q
 ```
 
+The [saved local test report](software-test-results.json) records the macOS/Python 3.9.6 publication run. [GitHub Actions](https://github.com/dilipreddykiralam-png/railway-incident-review/actions/workflows/tests.yml) independently installs the declared dependencies and runs the same checks on Linux with Python 3.11 for each push. Use the workflow result for the current commit's status.
+
 The [saved sample runs](SAMPLE_RESULTS.md) demonstrate Qwen2.5-VL 7B inference and document observed outputs. They are a small demonstration, not an independently labelled benchmark. This project does not claim a measured overall damage-recognition accuracy, a proven time saving or improved safety.
 
 ## Prepare independent reference labels
