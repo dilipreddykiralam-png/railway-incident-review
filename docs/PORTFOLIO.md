@@ -4,7 +4,7 @@ Use these descriptions to explain the implemented work. The software test count 
 
 ## Repository About description
 
-Railway image and video review with Qwen2.5-VL 7B: structured damage findings, supporting frames, human verification and evaluation tools. 120 automated software tests passed.
+RailSight AI — railway image and video review with Qwen2.5-VL 7B: structured damage findings, supporting frames, human verification and evaluation tools. 120 automated software tests passed.
 
 ## Short project bio
 

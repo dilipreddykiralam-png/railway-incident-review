@@ -18,8 +18,9 @@ from railreview.video_presentation import video_presentation
 from railreview.ui_results import render_video_samples, render_video_summary
 from railreview.metrics import display_metrics
 
-st.set_page_config(page_title='Railway Incident Review', layout='wide')
-st.title('Railway image and video review')
+st.set_page_config(page_title='RailSight AI', layout='wide')
+st.title('RailSight AI')
+st.subheader('Railway Incident & Damage Intelligence')
 st.caption('Qwen2.5-VL 7B · Evidence-linked findings · Human verification')
 backend = st.sidebar.selectbox('Analysis backend', ['vlm','demo'])
 chosen_model = st.sidebar.selectbox('Local vision model', ['qwen2.5vl:7b'])

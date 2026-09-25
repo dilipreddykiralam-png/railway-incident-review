@@ -1,4 +1,8 @@
-# Railway Incident Review
+# RailSight AI
+
+**Railway Incident & Damage Intelligence**
+
+Analyze railway images and videos. Review damage. Verify with human expertise.
 
 [![Tests](https://github.com/dilipreddykiralam-png/railway-incident-review/actions/workflows/tests.yml/badge.svg)](https://github.com/dilipreddykiralam-png/railway-incident-review/actions/workflows/tests.yml)
 
