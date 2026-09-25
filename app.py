@@ -1,6 +1,10 @@
 import hashlib
 import base64
 import json
+import os
+import sqlite3
+import uuid
+from railreview.usage import configured_path, record_usage, totals
 from pathlib import Path
 import streamlit as st
 from railreview.backends import get_backend
@@ -19,7 +23,19 @@ st.title('Railway image and video review')
 st.caption('Qwen2.5-VL 7B · Evidence-linked findings · Human verification')
 backend = st.sidebar.selectbox('Analysis backend', ['vlm','demo'])
 chosen_model = st.sidebar.selectbox('Local vision model', ['qwen2.5vl:7b'])
-st.sidebar.markdown('[Label images independently](http://127.0.0.1:8504/)')
+public_mode = os.getenv('RAILREVIEW_PUBLIC') == '1'
+usage_path = configured_path()
+st.session_state.setdefault('usage_session', uuid.uuid4().hex)
+if not public_mode:
+    st.sidebar.markdown('[Label images independently](http://127.0.0.1:8504/)')
+else:
+    st.caption('Public demo: media is processed by the configured model server. Reviews stay in this session; download your report before leaving. Anonymous session and completed-test totals are counted; no names, media, IP addresses or locations are stored in the counter.')
+if usage_path:
+    try:
+        counts = totals(usage_path)
+        st.sidebar.caption(f"Public usage: {counts['testing_sessions']} testing sessions · {counts['completed_analyses']} completed tests. Sessions are not unique people.")
+    except (OSError, sqlite3.Error):
+        st.sidebar.caption('Usage count temporarily unavailable.')
 threshold = st.sidebar.slider('Priority review threshold', 0.0, 1.0, 0.7, 0.05)
 st.sidebar.caption('Classification confidence and asset confidence are separate model estimates. Neither is measured accuracy. Unknown damage is shown as Not assessable; missing confidence is shown as Not reported.')
 if backend == 'demo': st.warning('DEMO: fixed uncertain output. No image understanding is performed.')
@@ -57,6 +73,11 @@ if upload:
                     st.session_state.record = run_video(data, get_backend(backend, chosen_model), threshold, count, lambda n,total: progress.progress(n/total, text=f'Analyzed frame {n} of {total}'))
                 else:
                     st.session_state.record = run(data, get_backend(backend, chosen_model), threshold)
+            if usage_path:
+                try:
+                    record_usage(usage_path, st.session_state.usage_session, st.session_state.get('record'), backend)
+                except (OSError, sqlite3.Error):
+                    st.warning('Analysis completed, but the usage counter is unavailable.')
         except Exception as e: st.error(str(e))
     record = st.session_state.get('record')
     if record:
@@ -142,13 +163,14 @@ if upload:
                     try:
                         reviewed = verify(record, corrected, reviewer, notes)
                         reviewed['asset_verification'] = review_assets(record, edited_assets.to_dict('records'), reviewer)
-                        folder = Path('runs'); folder.mkdir(exist_ok=True)
-                        # Unique event file: repeated reviews never overwrite previous reviews.
-                        import uuid
-                        path = folder / f"{record['id']}-review-{uuid.uuid4().hex}.json"
-                        path.write_text(json.dumps(reviewed, indent=2))
+                        if not public_mode:
+                            folder = Path('runs'); folder.mkdir(exist_ok=True)
+                            path = folder / f"{record['id']}-review-{uuid.uuid4().hex}.json"
+                            path.write_text(json.dumps(reviewed, indent=2))
+                            st.success('Verification saved: ' + str(path))
+                        else:
+                            st.success('Verification ready. Download your result below; it is not saved permanently on this server.')
                         st.session_state.record = record = reviewed
-                        st.success('Verification saved: ' + str(path))
                     except Exception as e: st.error(str(e))
             if record.get('asset_verification'):
                 st.subheader('Human-reviewed asset list')

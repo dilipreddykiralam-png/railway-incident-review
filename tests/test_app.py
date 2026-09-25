@@ -244,3 +244,28 @@ def test_event_confidence_and_unknown_damage_render_separately(tmp_path,monkeypa
         assert not app.exception
         assert [m.value for m in app.metric]==['No visible incident','Not assessable','65%']
         assert any('Asset confidence: 75%' in c.value for c in app.caption)
+
+
+def test_public_review_download_does_not_save_personal_report(tmp_path, monkeypatch):
+    from pathlib import Path
+    from railreview.backends import DemoBackend
+    from railreview.pipeline import run
+    from railreview.usage import totals
+    app_path = Path(__file__).resolve().parents[1] / 'app.py'
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv('RAILREVIEW_PUBLIC', '1')
+    monkeypatch.setenv('RAILREVIEW_USAGE_DB', str(tmp_path / 'usage.sqlite3'))
+    record = run(make_image(), DemoBackend())
+    uploaded = UploadedFile(UploadedFileRec('one', 'test.png', 'image/png', make_image()), None)
+    with patch('streamlit.file_uploader', return_value=uploaded), patch('railreview.pipeline.run', return_value=record):
+        app = AppTest.from_file(str(app_path), default_timeout=60).run()
+        app.button[0].click().run()
+        assert not app.exception
+        assert totals(tmp_path / 'usage.sqlite3')['completed_analyses'] == 1
+        app.run()
+        assert totals(tmp_path / 'usage.sqlite3')['completed_analyses'] == 1
+        app.text_input[0].set_value('test-reviewer')
+        app.button[1].click().run()
+        assert not app.exception
+        assert app.session_state['record']['human_verification']['status'] == 'confirmed'
+        assert not (tmp_path / 'runs').exists()

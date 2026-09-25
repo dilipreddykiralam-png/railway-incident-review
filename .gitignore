@@ -38,3 +38,6 @@ paper/
 .vscode/
 *.log
 test-results.xml
+_site/
+*.sqlite3
+*.sqlite3-*

@@ -2,6 +2,10 @@
 
 [![Tests](https://github.com/dilipreddykiralam-png/railway-incident-review/actions/workflows/tests.yml/badge.svg)](https://github.com/dilipreddykiralam-png/railway-incident-review/actions/workflows/tests.yml)
 
+**[Explore the free sample demo](https://dilipreddykiralam-png.github.io/railway-incident-review/)** · **Public testing-session count: not connected**
+
+The sample demo shows saved model responses. New uploads require the locally running app; live public inference is not deployed yet. See [free hosting options and counter setup](docs/HOSTING.md).
+
 A local application that turns railway images and sampled video frames into structured incident and damage findings, with supporting images and human verification.
 
 Built with **Qwen2.5-VL 7B**, Ollama, Streamlit, Pydantic and OpenCV. The project combines visual assessment, validation, a review interface and reproducible evaluation tools. It uses a pretrained model; no railway-specific training has been performed.
@@ -37,7 +41,23 @@ Example input: photo by Paula R. Lively, [CC BY 2.0](https://creativecommons.org
 
 The application supports assets such as locomotives, wagons, passenger coaches, track, signals, catenary, crossing barriers and road vehicles. Each can have a separate damage finding. The sample outputs are actual example runs, not an independently measured accuracy benchmark.
 
-**Software validation: 109 automated tests passed.** These test validation, video presentation, correction handling, dataset export and scoring behavior. This is a software reliability result, **not recognition accuracy**. See the [saved test result](docs/software-test-results.json) and [evaluation scope and instructions](docs/EVALUATION.md).
+**Software validation: 120 automated tests passed.** These test validation, video presentation, correction handling, dataset export and scoring behavior. This is a software reliability result, **not recognition accuracy**. See the [saved test result](docs/software-test-results.json) and [evaluation scope and instructions](docs/EVALUATION.md).
+
+## General system requirements
+
+These are practical starting recommendations, not measured minimums for every computer.
+
+| Component | Recommendation |
+| --- | --- |
+| Operating system | Windows, macOS or Linux supported by current Python and Ollama releases |
+| Python | 3.11 in a separate virtual environment |
+| RAM for local Qwen 7B | Start with 16 GB; more memory gives headroom for model context, video and other applications |
+| GPU | Compatible acceleration recommended; CPU inference may be much slower. The app does not require a particular GPU brand |
+| Disk | Allow roughly 15 GB free for model weights, Python packages and temporary files; verify available space before downloading |
+| Browser | Current Chrome, Edge, Firefox or Safari |
+| Network | Needed for installation/model download; default local inference can run after downloading |
+
+If using a remote model server, the local computer does not load model weights. Exact hardware in [sample run metadata](examples/outputs/run_metadata.json) describes that experiment only; it is not a requirement. Software CI runs on Linux; the local suite has also been run on macOS. Windows instructions are provided but a Windows run has not been independently verified.
 
 ## Run locally
 
@@ -123,6 +143,18 @@ Confidence is the model's uncalibrated self-assessment. Classification confidenc
 
 Saving corrections **does not train or update Qwen**. Reviewed examples could support a later dataset after quality and permission checks. Evaluation images should remain separate from future training data.
 
+## What users should expect
+
+1. Upload a railway image or a short video and select Analyze.
+2. The model returns incident / non-incident / uncertain, assets, components, damage, visible severity, confidence and evidence. It can return several asset findings.
+3. Inspect the image or sampled frames beside the findings. Unknown severity and missing confidence remain explicitly unknown rather than invented.
+4. Confirm or correct the draft, adding missed assets and removing unsupported claims.
+5. Save verification and download JSON. Local saved reports include the original prediction and human corrections separately.
+
+A schematic example could be “incident → wagon → body → deformation → severe,” accompanied by evidence and a self-reported confidence. This is an example of the output format, not a guaranteed answer. [Three real saved outputs](docs/SAMPLE_RESULTS.md) include both normal and incident scenes, limitations and known model mistakes.
+
+This workflow can help researchers organize visual incident records and help reviewers draft consistent reports. It does not establish accident causes, certify asset condition or replace a railway inspection.
+
 ## Tests and evaluation
 
 Run the automated software tests without downloading a model:
@@ -130,6 +162,8 @@ Run the automated software tests without downloading a model:
 ```bash
 python -m pytest -q
 ```
+
+A passing run prints a summary such as `120 passed in ...s`. The exact latest CI result is available through the Tests badge above. Tests exercise schema consistency, failed responses, video grouping, human corrections, evaluation scoring and counter behavior using controlled inputs; they do not prove the model identified damage correctly.
 
 For an actual recognition study, label images independently before viewing model responses, freeze the test set and compare the original saved predictions against those labels. [EVALUATION.md](docs/EVALUATION.md) includes exact labelling, batch inference and scoring steps. Never use a successful software test count as an image accuracy percentage.
 
